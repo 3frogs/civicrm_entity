@@ -302,6 +302,7 @@ function _civicrm_entity_enabled_entities() {
     'civicrm_address' => 'address',
     'civicrm_email' => 'email',
     'civicrm_event' => 'event',
+    'civicrm_case' => 'case',
     'civicrm_contact' => 'contact',
     'civicrm_contribution' => 'contribution',
     'civicrm_participant' => 'participant',
@@ -350,6 +351,7 @@ function _civicrm_entity_labels($entity) {
     'civicrm_contribution' => 'source',
     'civicrm_email' => 'email',
     'civicrm_event' => 'title',
+    'civicrm_case' => 'subject',
     'civicrm_participant' => 'source',
     'civicrm_relationship' => 'description',
     'civicrm_relationship_type' => 'description',
@@ -1444,6 +1446,8 @@ function  civicrm_entity_op_access($op, $entity) {
         return user_access('view all activities');
       case "civicrm_event":
         return user_access('view event info');
+      case "civicrm_case":
+        return user_access('access my cases and activities');        
       case "civicrm_contribution":
         return user_access('administer CiviCRM') &&
         user_access('access CiviContribute');
@@ -1486,6 +1490,9 @@ function  civicrm_entity_op_access($op, $entity) {
         return user_access('view all activities');
       case "civicrm_event":
         return user_access('edit all events');
+      case "civicrm_case":
+        return user_access('access my cases and activities') &&
+        user_access('add cases');        
       case "civicrm_contribution":
         return user_access('administer CiviCRM') &&
         user_access('edit contributions');
@@ -1532,6 +1539,9 @@ function  civicrm_entity_op_access($op, $entity) {
       case "civicrm_event":
         return user_access('edit all events') &&
         user_access('delete in CiviEvent');
+      case "civicrm_case":
+        return user_access('access my cases and activities') &&
+        user_access('delete in CiviCase');        
       case "civicrm_contribution":
         return user_access('administer CiviCRM') &&
         user_access('edit contributions') &&
