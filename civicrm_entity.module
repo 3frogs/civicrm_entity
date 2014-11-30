@@ -351,7 +351,8 @@ function _civicrm_entity_labels($entity) {
     'civicrm_contribution' => 'source',
     'civicrm_email' => 'email',
     'civicrm_event' => 'title',
-    'civicrm_case' => 'subject',
+    // 'subject' for case causes errors. stay on the safe side
+    'civicrm_case' => 'id',
     'civicrm_participant' => 'source',
     'civicrm_relationship' => 'description',
     'civicrm_relationship_type' => 'description',
